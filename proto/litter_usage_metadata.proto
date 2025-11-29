@@ -12,13 +12,17 @@ message LitterBoxMetadata
     string camera_name = 2;
 }
 
-message LitterUsageMetadata
+message UsageVideoMetadata
 {
     int64 start_timestamp_unix_ns = 1;
     double usage_duration_s = 2;
+    string usage_video_filepath = 3;
+    int64 file_expiration_timestamp_ns = 4;
+}
 
-    CatMetadata cat_metadata = 3;
-    LitterBoxMetadata litter_box_metadata = 4;
-
-    string usage_video_filepath = 5;
+message LitterUsageMetadata
+{
+    CatMetadata cat_metadata = 1;
+    LitterBoxMetadata litter_box_metadata = 2;
+    UsageVideoMetadata usage_video_metadata = 3;
 }
