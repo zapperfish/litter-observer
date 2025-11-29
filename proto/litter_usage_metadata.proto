@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+message CatMetadata
+{
+    string cat_name = 1;
+    double cat_weight_kg = 2;
+}
+
+message LitterBoxMetadata
+{
+    string litter_box_name = 1;
+    string camera_name = 2;
+}
+
+message LitterUsageMetadata
+{
+    int64 start_timestamp_unix_ns = 1;
+    double usage_duration_s = 2;
+
+    CatMetadata cat_metadata = 3;
+    LitterBoxMetadata litter_box_metadata = 4;
+
+    string usage_video_filepath = 5;
+}
