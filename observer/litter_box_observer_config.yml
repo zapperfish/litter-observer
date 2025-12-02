@@ -1,0 +1,26 @@
+# Sample Litter Box Observer Configuration
+# This config is deserialized into a LitterBoxObserverConfig proto
+
+# Video buffer configuration
+video_buffer_config:
+  # Duration of video history to buffer (in seconds)
+  buffer_history_duration_s: 60.0
+
+# Video storage configuration
+video_storage_config:
+  # Number of days before videos expire and are deleted
+  video_expiration_days: 30
+  # Length of each video clip to store (in seconds)
+  video_length_s: 120.0
+  # Root directory rwhere video files will be stored
+  video_filestore_root_directory: "/path/to/video/storage"
+
+# Usage observer configuration
+usage_observer_config:
+  # Whisker app username (for Litter-Robot API access)
+  whisker_username: "$WHISKER_USERNAME"
+  # Whisker app password
+  whisker_password: "$WHISKER_PASSWORD"
+  # Name of the target robot to observe
+  target_robot_name: "Stamturd Bridge"
+
