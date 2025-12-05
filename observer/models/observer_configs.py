@@ -4,6 +4,9 @@ from pydantic import BaseModel
 class VideoBufferConfig(BaseModel):
     """Configuration for video buffer."""
     buffer_history_duration_s: float
+    reolink_camera_ip: str
+    reolink_camera_username: str
+    reolink_camera_password: str
 
 
 class VideoStorageConfig(BaseModel):

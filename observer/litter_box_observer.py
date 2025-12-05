@@ -1,4 +1,5 @@
 from observer.usage_observer import UsageObserver
+from observer.video_buffer import VideoBuffer
 from observer.models import LitterBoxObserverConfig
 
 class LitterBoxObserver:
@@ -7,6 +8,8 @@ class LitterBoxObserver:
         self,
         observer_config: LitterBoxObserverConfig):
         self._usage_observer = UsageObserver(observer_config.usage_observer_config)
+        self._video_buffer = VideoBuffer(observer_config.video_buffer_config)
+        print("Completed init")
 
     async def begin_observing(self):
         await self._usage_observer.init()
