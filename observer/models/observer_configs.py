@@ -23,9 +23,16 @@ class UsageObserverConfig(BaseModel):
     target_robot_name: str
 
 
+class LitterServiceClientConfig(BaseModel):
+    """Configuration for litter service client."""
+    service_address: str
+    service_port: int
+
+
 class LitterBoxObserverConfig(BaseModel):
     """Configuration for litter box observer."""
     video_buffer_config: VideoBufferConfig
     video_storage_config: VideoStorageConfig
     usage_observer_config: UsageObserverConfig
+    litter_service_client_config: LitterServiceClientConfig
 

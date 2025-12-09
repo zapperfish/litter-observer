@@ -25,5 +25,11 @@ usage_observer_config:
   # Whisker app password
   whisker_password: "$WHISKER_PASSWORD"
   # Name of the target robot to observe
-  target_robot_name: "Stamturd Bridge"
+  target_robot_name: "$TARGET_ROBOT"
 
+# Litter service client configuration
+litter_service_client_config:
+  # Address of the litter service
+  service_address: "localhost"
+  # Port of the litter service
+  service_port: 4567

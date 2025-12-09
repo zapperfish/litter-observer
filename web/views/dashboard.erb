@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Litter Box Dashboard</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Courier New', monospace;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        min-height: 100vh;
+        color: #e8e8e8;
+        padding: 40px;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        color: #f5d742;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        letter-spacing: 2px;
+      }
+      
+      .stats-container {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      
+      .stat-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(245, 215, 66, 0.3);
+        border-radius: 12px;
+        padding: 30px 40px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        min-width: 200px;
+      }
+      
+      .stat-label {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        color: #f5d742;
+        margin-bottom: 12px;
+      }
+      
+      .stat-value {
+        font-size: 4rem;
+        font-weight: bold;
+        color: #4ecca3;
+        text-shadow: 0 0 20px rgba(78, 204, 163, 0.4);
+      }
+      
+      .stat-unit {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #7a7a7a;
+        margin-top: 8px;
+      }
+      
+      .no-data {
+        color: #7a7a7a;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🐱 Litter Box Dashboard</h1>
+    
+    <div class="stats-container">
+      <% if @usages_by_cat.nil? || @usages_by_cat.empty? %>
+        <p class="no-data">No litter usages in the past 24 hours</p>
+      <% else %>
+        <% @usages_by_cat.each do |cat_name, count| %>
+          <div class="stat-card">
+            <div class="stat-label"><%= cat_name %></div>
+            <div class="stat-value"><%= count %></div>
+            <div class="stat-unit">visits (24h)</div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </body>
+</html>

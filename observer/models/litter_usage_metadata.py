@@ -16,7 +16,7 @@ class LitterUsageMetadata(BaseModel):
     """Metadata about a litter box usage event."""
     cat_metadata: CatMetadata
     litter_box_metadata: LitterBoxMetadata
-    usage_timestamp: datetime.datetime
+    usage_timestamp_unix_ns: int
 
 
 class UsageVideoMetadata(BaseModel):
